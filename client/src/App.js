@@ -3,17 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-   // Fetch passwords after first mount
-  componentDidMount() {
-    this.getPasswords();
-  }
-
-  getPasswords = () => {
-    // Get the passwords and store them in state
-    fetch('/api/feofo')
-      .then(res => res.json())
-  }
+ 
   render() {
+    console.log('jijij')
     return (
       <div className="App">
         <div className="App-header">
