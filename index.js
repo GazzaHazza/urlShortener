@@ -1,6 +1,6 @@
 require('babel-register');
 
-const app = require('./src/app').app,
+const app = require('./server/app').app,
       PORT = process.env.PORT || 8000;
 
 app.listen(PORT, function() {
