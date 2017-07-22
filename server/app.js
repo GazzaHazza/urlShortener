@@ -10,6 +10,7 @@ mongoose.Promise = global.Promise;
 
 export const app = express();
 mongoose.connect('mongodb://admin:Hellotouall1234@ds115493.mlab.com:15493/url_shortener', {useMongoClient: true});
+app.use(express.static(path.join(path.dirname(__dirname), 'client/build')));
 
 app.get('/api/:shortCode', (req, res) => {
   let shortCode = parseInt(req.params.shortCode);
