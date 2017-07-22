@@ -1,11 +1,29 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  getNewURL() {
+    axios.post('/api/new', {
+      url: "hello"
+    })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error.response.data);
+  });
+
+  }
+
+  componentDidMount() {
+    this.getNewURL();
+  }
  
   render() {
-    console.log('jijij')
+    
     return (
       <div className="App">
         <div className="App-header">
