@@ -1,6 +1,6 @@
-import url from './url'
-import { combineReducers } from 'redux';
+import url from "./url";
+import { combineReducers } from "redux";
 const rootReducer = combineReducers({
-    url
+  url
 });
 export default rootReducer;
