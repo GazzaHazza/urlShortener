@@ -6,12 +6,12 @@ export function isValidUrl(url) {
 }
 
 export function createFullUrl(req, url) {
-  return `${req.protocol}://${req.hostname}:${getPort()}/${url}`;
+  return `${req.protocol}://${req.hostname}${getPort()}/${url}`;
 }
 
 function getPort() {
   if(process.env.NODE_ENV === "production") {
-    return null;
+    return '';
   }
-  return process.env.PORT || 3000;
+  return `:${process.env.PORT || 3000}`;
 }
