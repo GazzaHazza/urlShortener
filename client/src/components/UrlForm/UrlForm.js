@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./URLForm.css";
 class UrlForm extends Component {
   handleOnClick = () => {
     this.props.onClickGenerate(this.refs.urlInput.value);

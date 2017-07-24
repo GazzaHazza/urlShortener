@@ -17,13 +17,13 @@ app.use(express.static(path.join(path.dirname(__dirname), 'client/build')));
 app.get('/api/:shortCode', (req, res) => {
   let shortCode = parseInt(req.params.shortCode);
   if (isNaN(shortCode)) {
-    res.status(200).json({ error: 'Invalid URL shortCode. It must be a number.' })
+    res.status(200).json({ message: 'Invalid URL shortCode. It must be a number.' })
   } else {
     UrlEntry.findOne({ shortCode }).then(doc => {
       if (!doc) {
-        res.status(404).json({ error: 'Page not found' });
+        res.status(404).json({ message: 'No URL is in the database with this short code' });
       } else {
-        res.redirect(doc.original);
+        res.status(200).json({originalUrl:doc.original});
       }
     });
   }
@@ -34,15 +34,15 @@ app.post('/api/new/', (req, res) => {
   if (isValidUrl(url)) {
     isDuplicate(url).then(exists => {
       if (exists.foundOne) {
-        res.status(500).json({ error: 'URL already exists in the database.', shortCode: exists.shortCode, originalUrl: url });
+        res.status(500).json({ message: 'URL already exists in the database.', shortCode: createFullUrl(req, exists.shortCode), originalUrl: url });
       } else {
         insertNew(url).then(inserted => {
-          res.status(200).json({ message: 'Url successfully shortened', shortUrl: createFullUrl(req, inserted.shortCode), originalUrl: url });
+          res.status(200).json({ message: 'Short URL succesffuly shortened, here it is -', shortUrl: createFullUrl(req, inserted.shortCode), originalUrl: url });
         });
       }
     });
   } else {
-    res.status(500).json({ error: 'Invalid URL format. Input URL must comply to the following: http(s)://(www.)domain.ext(/)(path)'});
+    res.status(500).json({ message: 'Invalid URL format. Input URL must comply to the following: http(s)://(www.)domain.ext(/)(path)'});
   }
 });
 

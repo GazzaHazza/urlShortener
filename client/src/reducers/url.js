@@ -2,7 +2,7 @@ import axios from "axios";
 
 export function sendNewUrl(newUrl) {
   return dispatch => {
-    dispatch(startAddingNewUrl());
+    dispatch(startUrlFetch());
     axios
       .post("/api/new", {
         url: newUrl
@@ -17,17 +17,42 @@ export function sendNewUrl(newUrl) {
       });
   };
 }
-const START_ADD_NEW_URL = "url.START_ADD_NEW";
-function startAddingNewUrl() {
-  return {
-    type: START_ADD_NEW_URL
+
+export function getOriginalUrl(shortCode) {
+  return dispatch => {
+    dispatch(startUrlFetch());
+    axios
+      .get(`/api/${shortCode}`)
+      .then(function(response) {
+        console.log("response", response);
+        dispatch(storeOriginalUrl(response.data));
+      })
+      .catch(function(error) {
+        dispatch(apiError(error.response.data));
+        console.log("error", error.response);
+      });
   };
 }
 
-const ADDED_NEW_URL = "url.NEW_ADDED";
+const START_FETCH_URL = "url.START_FETCH";
+function startUrlFetch() {
+  return {
+    type: START_FETCH_URL
+  };
+}
+
+const ADDED_NEW_URL = "url.ADDED_NEW";
 function urlAdded(data) {
   return {
     type: ADDED_NEW_URL,
+    data
+  };
+}
+
+const STORE_ORIGINAL_URL = "url.STORE_ORIGINAL";
+function storeOriginalUrl(data) {
+  return {
+    type: STORE_ORIGINAL_URL,
     data
   };
 }
@@ -52,7 +77,7 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case START_ADD_NEW_URL:
+    case START_FETCH_URL:
       return { ...state, busy: true };
     case ADDED_NEW_URL:
       return {
@@ -68,7 +93,14 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         busy: false,
         error: true,
-        message: action.data.error
+        message: action.data.message
+      };
+
+    case STORE_ORIGINAL_URL:
+      return {
+        ...state,
+        busy: false,
+        originalUrl: action.data.originalUrl
       };
 
     default:

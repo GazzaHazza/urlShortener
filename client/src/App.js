@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Route } from "react-router-dom";
 import "./App.css";
-import URLRedirect from "./components/URLRedirect/URLRedirect";
-import Home from "./components/Home/Home";
+import URLRedirect from "./views/URLRedirect/URLRedirect";
+import Home from "./views/Home/Home";
 
 class App extends Component {
   render() {
