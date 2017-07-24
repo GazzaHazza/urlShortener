@@ -6,7 +6,6 @@ import Message from "../../components/Message/Message";
 
 class Home extends Component {
   generateNewUrl = url => {
-    console.log("url", url);
     this.props.sendNewUrl && this.props.sendNewUrl(url);
   };
   render() {

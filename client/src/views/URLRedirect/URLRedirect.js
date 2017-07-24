@@ -9,13 +9,7 @@ class URLRedirect extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.url.originalUrl);
-    console.log(this.props.url.originalUrl);
     if (nextProps.url.originalUrl !== this.props.url.originalUrl) {
-      console.log(
-        "nextProps.url.originalUrl",
-        nextProps.url.originalUrl.toString()
-      );
       window.location = nextProps.url.originalUrl;
     }
   }

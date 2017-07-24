@@ -8,12 +8,10 @@ export function sendNewUrl(newUrl) {
         url: newUrl
       })
       .then(function(response) {
-        console.log("response", response);
         dispatch(urlAdded(response.data));
       })
       .catch(function(error) {
         dispatch(apiError(error.response.data));
-        console.log("error", error.response);
       });
   };
 }
@@ -24,12 +22,10 @@ export function getOriginalUrl(shortCode) {
     axios
       .get(`/api/${shortCode}`)
       .then(function(response) {
-        console.log("response", response);
         dispatch(storeOriginalUrl(response.data));
       })
       .catch(function(error) {
         dispatch(apiError(error.response.data));
-        console.log("error", error.response);
       });
   };
 }

@@ -10,5 +10,8 @@ export function createFullUrl(req, url) {
 }
 
 function getPort() {
-  return process.env.PORT || 8000;
+  if(process.env.NODE_ENV === "production") {
+    return null;
+  }
+  return process.env.PORT || 3000;
 }
