@@ -34,10 +34,10 @@ app.post('/api/new/', (req, res) => {
   if (isValidUrl(url)) {
     isDuplicate(url).then(exists => {
       if (exists.foundOne) {
-        res.status(500).json({ error: 'URL already exists in the database.', shortCode: exists.shortCode });
+        res.status(500).json({ error: 'URL already exists in the database.', shortCode: exists.shortCode, originalUrl: url });
       } else {
         insertNew(url).then(inserted => {
-          res.status(200).json({ message: 'Url successfully shortened', url: createFullUrl(req, inserted.shortCode) });
+          res.status(200).json({ message: 'Url successfully shortened', shortUrl: createFullUrl(req, inserted.shortCode), originalUrl: url });
         });
       }
     });

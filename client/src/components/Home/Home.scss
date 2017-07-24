@@ -1,0 +1,8 @@
+@import './../../styles/_colors.scss';
+
+.home {
+    &__container {
+        padding: 20px;
+        background: $color1;
+    }
+}
