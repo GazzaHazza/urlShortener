@@ -1,7 +1,7 @@
 export function isValidUrl(url) {
   // Must comply to this format () means optional:
   // http(s)://(www.)domain.ext(/)(whatever follows)
-  let regEx = /^(\S+\.)?(\S+\.)(\S+)\S*/;
+  let regEx = /^((https?):\/\/|www\.)[^\s/$.?#].[^\s]*/;
   return regEx.test(url);
 }
 
