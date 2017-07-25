@@ -10,5 +10,5 @@ export function createFullUrl(req, url) {
 }
 
 function getPort() {
-  return 8000;
+  return process.env.PORT || 8000;
 }

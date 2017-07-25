@@ -12,7 +12,8 @@ mongoose.Promise = global.Promise;
 export const app = express();
 mongoose.connect('mongodb://admin:Hellotouall1234@ds115493.mlab.com:15493/url_shortener', {useMongoClient: true});
 app.use(bodyParser.json());
-app.use(express.static(path.join(path.dirname(__dirname), 'client/build')));
+console.log(path.resolve(__dirname, '../client/build'));
+app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 app.get('/api/:shortCode', (req, res) => {
   let shortCode = parseInt(req.params.shortCode);
@@ -46,6 +47,6 @@ app.post('/api/new/', (req, res) => {
   }
 });
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/build/index.html'));
 });
