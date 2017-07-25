@@ -21,7 +21,7 @@ app.get('/api/:shortCode', (req, res) => {
   } else {
     UrlEntry.findOne({ shortCode }).then(doc => {
       if (!doc) {
-        res.status(404).json({ message: 'No URL is in the database with this short code' });
+        res.status(500).json({ message: 'No URL is in the database with this short code' });
       } else {
         res.status(200).json({originalUrl:doc.original});
       }

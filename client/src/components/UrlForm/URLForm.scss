@@ -1,8 +1,45 @@
 @import './../../styles/_colors.scss';
+@import './../../styles/_typography.scss';
+@import './../../styles/_mixins.scss';
 
 .url-form {
     &__container {
-        padding: 20px;
-        background: $color1;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+    }
+    &__input {
+        flex: 2 0 0;
+        border: 1px solid $color3-lighter;
+        outline:none;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: $font-size-normal;
+        line-height: $font-size-normal;
+
+        @media all and (max-width: 520px) {
+            flex: auto;
+            width:100%;
+        }
+    }
+    &__button {
+        flex: 1 0 0;
+        margin-left: 10px;
+        outline:none;
+        border: none;
+        background: $color6;
+        padding: 10px;
+        font-size: $font-size-normal;
+        border-radius: 5px;
+        border:1px solid $color6;
+        &:active {
+            border-style: insert;
+            border-color: $color6-darker;
+        }
+        @media all and (max-width: 520px) {
+            flex: auto;
+            width: 100%;
+            margin: 20px 0 0 0;
+        }
     }
 }

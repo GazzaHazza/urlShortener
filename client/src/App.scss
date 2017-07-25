@@ -1,10 +1,25 @@
 @import './styles/_colors.scss';
+@import './styles/_typography.scss';
 body {
-  background: $color5;
-  color: $color3;
+  background: $color5-darker;
+  color: $color3-darker;
+  font-family: $body-font;
+  font-size: $font-size-normal;
 }
 .container {
   max-width: 1080px;
-  margin: 0 auto;
+  margin: 200px auto 0;
   display: flex;
+  flex-flow: column;
+  align-content: center;
+  @media all and (max-width: 520px) {
+    margin-top: 50px;
+  }
+}
+
+.title, .subtitle {
+ text-align: center,
+}
+.subtitle {
+  margin-bottom: 50px;
 }

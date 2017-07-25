@@ -5244,6 +5244,10 @@ react-error-overlay@^1.0.9:
     settle-promise "1.0.0"
     source-map "0.5.6"
 
+react-fade-in@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/react-fade-in/-/react-fade-in-0.1.4.tgz#b2b986dd5bcabdb126beb7cf1eb4d1ae40142bcc"
+
 react-redux@^5.0.5:
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.5.tgz#f8e8c7b239422576e52d6b7db06439469be9846a"

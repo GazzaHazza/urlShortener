@@ -1,0 +1,17 @@
+@import '../../styles/_colors.scss';
+@import '../../styles/_typography.scss';
+.message {
+    padding:10px;
+    border: 1px solid #ffffff;
+    margin-top: 20px;
+    border-radius: 5px;
+    &--added {
+        background: $color4-lighter;
+        border-color: $color4-darker;
+    }
+    &--error {
+        background: $color2-lighter;
+        border-color: $color2-darker;
+    }
+
+}

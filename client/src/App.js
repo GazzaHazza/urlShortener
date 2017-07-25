@@ -9,6 +9,8 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <h1 className="title">Url shortener....</h1>
+        <h2 className="subtitle">Enter url below and use "short" version.</h2>
         <Route exact path="/" component={Home} />
 
         <Route path="/:urlCode" component={URLRedirect} />

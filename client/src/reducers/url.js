@@ -62,9 +62,9 @@ function apiError(errorData) {
 }
 
 const INITIAL_STATE = {
-  busy: false,
-  added: false,
-  fetched: false,
+  isBusy: false,
+  hasAdded: false,
+  hasFetched: false,
   error: false,
   message: null,
   shortUrl: null,
@@ -74,12 +74,12 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case START_FETCH_URL:
-      return { ...state, busy: true };
+      return { ...state, isBusy: true };
     case ADDED_NEW_URL:
       return {
         ...state,
-        busy: false,
-        added: true,
+        isBusy: false,
+        hasAdded: true,
         shortUrl: action.data.shortUrl,
         originalUrl: action.data.originalUrl,
         message: action.data.message
@@ -87,15 +87,16 @@ export default (state = INITIAL_STATE, action) => {
     case API_ERROR:
       return {
         ...state,
-        busy: false,
+        isBusy: false,
         error: true,
+        hasAdded: false,
         message: action.data.message
       };
 
     case STORE_ORIGINAL_URL:
       return {
         ...state,
-        busy: false,
+        isBusy: false,
         originalUrl: action.data.originalUrl
       };
 
