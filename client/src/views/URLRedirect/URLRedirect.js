@@ -16,7 +16,9 @@ class URLRedirect extends Component {
 
   render() {
     return (
-      <div className="url-redirect__container">this is redirect component</div>
+      <div className="url-redirect__container">
+        <h1>Redirecting....</h1>
+      </div>
     );
   }
 }

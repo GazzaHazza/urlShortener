@@ -29,6 +29,10 @@ class Home extends Component {
     return (
       <div className="home">
         <div className="home__container">
+          <h1 className="home__title">Url shortener....</h1>
+          <h2 className="home__subtitle">
+            Enter url below and use "short" version.
+          </h2>
           <UrlForm onClickGenerate={this.generateNewUrl} isBusy={isBusy} />
           {messageComp}
         </div>

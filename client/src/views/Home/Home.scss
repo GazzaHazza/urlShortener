@@ -6,4 +6,10 @@
             width:90%;
         }
     }
+    &__title, &__subtitle {
+        text-align: center,
+    }
+    &__subtitle {
+        margin-bottom: 50px;
+    }
 }
