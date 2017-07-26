@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with isBusy prop 1`] = `
+<div
+  className="url-form"
+>
+  <div
+    className="url-form__container"
+  >
+    <input
+      className="url-form__input"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <button
+      className="url-form__button"
+      onClick={[Function]}
+    >
+      Generating...
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders correctly without isBusy prop 1`] = `
+<div
+  className="url-form"
+>
+  <div
+    className="url-form__container"
+  >
+    <input
+      className="url-form__input"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <button
+      className="url-form__button"
+      onClick={[Function]}
+    >
+      Generate short link
+    </button>
+  </div>
+</div>
+`;

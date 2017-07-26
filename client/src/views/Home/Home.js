@@ -8,7 +8,7 @@ import MessageBox from "../../components/MessageBox/MessageBox";
 import Loading from "../../components/Loading/Loading";
 import "./Home.css";
 
-class Home extends Component {
+export class Home extends Component {
   generateNewUrl = url => {
     this.props.sendNewUrl && this.props.sendNewUrl(url);
   };

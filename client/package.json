@@ -30,8 +30,16 @@
   },
   "proxy": "http://localhost:8000",
   "devDependencies": {
+    "enzyme": "^2.9.1",
+    "enzyme-to-json": "^1.5.1",
     "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-prettier": "^2.1.2",
-    "prettier": "^1.5.3"
+    "prettier": "^1.5.3",
+    "react-test-renderer": "^15.6.1"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ]
   }
 }

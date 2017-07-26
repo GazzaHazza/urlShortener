@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with added class 1`] = `
+<div
+  className="message message--added"
+>
+  hello
+  <a
+    className="message__link message__link--added"
+    href="www.hello.com/1"
+    target="_blank"
+  >
+    www.hello.com/1
+  </a>
+</div>
+`;
+
+exports[`renders correctly with error class 1`] = `
+<div
+  className="message message--error"
+>
+  hello
+  <a
+    className="message__link message__link--error"
+    href="www.hello.com/1"
+    target="_blank"
+  >
+    www.hello.com/1
+  </a>
+</div>
+`;

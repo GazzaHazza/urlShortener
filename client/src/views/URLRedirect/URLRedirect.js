@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Loading from "../../components/Loading/Loading";
 import { getOriginalUrl } from "./../../reducers/url";
 
-class URLRedirect extends Component {
+export class URLRedirect extends Component {
   componentDidMount() {
     const shortCode = this.props.match.params.urlCode;
     this.props.getOriginalUrl && this.props.getOriginalUrl(shortCode);
