@@ -1,7 +1,8 @@
 .home {
     &__container {
         width:75%;
-        margin: 0 auto; 
+        margin: 0 auto;
+        position: relative; 
         @media all and (max-width: 520px) {
             width:90%;
         }

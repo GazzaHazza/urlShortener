@@ -39,7 +39,7 @@ app.post('/api/new/', (req, res) => {
   if (isValidUrl(url)) {
     isDuplicate(url).then(exists => {
       if (exists.foundOne) {
-        res.status(500).json({ message: 'URL already exists in the database.', shortCode: createFullUrl(req, exists.shortCode), originalUrl: url });
+        res.status(500).json({ message: 'URL already exists in the database. -', shortCode: createFullUrl(req, exists.shortCode), originalUrl: url });
       } else {
         insertNew(url).then(inserted => {
           res.status(200).json({ message: 'Short URL succesffuly shortened, here it is -', shortUrl: createFullUrl(req, inserted.shortCode), originalUrl: url });
@@ -52,5 +52,5 @@ app.post('/api/new/', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build/index.html', 'index.html'));
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });

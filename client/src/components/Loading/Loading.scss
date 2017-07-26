@@ -1,0 +1,14 @@
+.loading {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: rgba(234,234,234, .8);
+    left: calc(50% - 125px);
+    top: calc(50% - 75px);
+    .loading__icon {
+        font-size: 100px;
+        text-align: center;
+        display: block;
+        margin-top: 74px;
+    }
+}

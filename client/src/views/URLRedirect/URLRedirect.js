@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import Loading from "../../components/Loading/Loading";
 import { getOriginalUrl } from "./../../reducers/url";
 
 class URLRedirect extends Component {
@@ -18,7 +19,7 @@ class URLRedirect extends Component {
   render() {
     return (
       <div className="url-redirect__container">
-        <h1>Redirecting....</h1>
+        <Loading />
       </div>
     );
   }

@@ -7,13 +7,13 @@ class UrlForm extends Component {
   };
   render() {
     const { isBusy } = this.props;
-    const buttonContent = isBusy ? "Generating..." : "Generate URL";
+    const buttonText = isBusy ? "Generating..." : "Generate short link";
     return (
       <div className="url-form">
         <div className="url-form__container">
           <input type="text" className="url-form__input" ref="urlInput" />
           <button className="url-form__button" onClick={this.handleOnClick}>
-            {buttonContent}
+            {buttonText}
           </button>
         </div>
       </div>

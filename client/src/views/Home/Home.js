@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import FadeIn from "react-fade-in";
 import { sendNewUrl } from "./../../reducers/url";
 import UrlForm from "../../components/UrlForm/UrlForm";
-import Message from "../../components/Message/Message";
+import MessageBox from "../../components/MessageBox/MessageBox";
+import Loading from "../../components/Loading/Loading";
 import "./Home.css";
 
 class Home extends Component {
@@ -15,10 +16,11 @@ class Home extends Component {
     const {
       url: { message, hasError, hasAdded, shortUrl, orginalUrl, isBusy }
     } = this.props;
-    const messageComp =
+
+    const messageComponent =
       message && (hasAdded || hasError)
         ? <FadeIn>
-            <Message
+            <MessageBox
               message={message}
               hasError={hasError}
               hasAdded={hasAdded}
@@ -27,15 +29,18 @@ class Home extends Component {
             />
           </FadeIn>
         : null;
+
+    const loadingComponent = isBusy ? <Loading /> : null;
     return (
       <div className="home">
         <div className="home__container">
-          <h1 className="home__title">Url shortener....</h1>
+          <h1 className="home__title">Shorten your link....</h1>
           <h2 className="home__subtitle">
-            Enter url below and use "short" version.
+            Enter a url below, click generate and then use the "short" version.
           </h2>
           <UrlForm onClickGenerate={this.generateNewUrl} isBusy={isBusy} />
-          {messageComp}
+          {messageComponent}
+          {loadingComponent}
         </div>
       </div>
     );

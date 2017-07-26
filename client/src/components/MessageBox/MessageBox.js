@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import "./Message.css";
-class Message extends Component {
+import "./MessageBox.css";
+class MessageBox extends Component {
   render() {
     const { message, hasError, hasAdded, shortUrl } = this.props;
     const className = hasError && !hasAdded ? "--error" : "--added";
@@ -20,14 +20,14 @@ class Message extends Component {
   }
 }
 
-Message.propTypes = {
+MessageBox.propTypes = {
   hasError: PropTypes.bool,
   hasAdded: PropTypes.bool,
   shortUrl: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired
 };
-Message.defaultProps = {
+MessageBox.defaultProps = {
   hasError: false,
   hasAdded: false
 };
-export default Message;
+export default MessageBox;
