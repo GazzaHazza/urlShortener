@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "./URLForm.css";
 class UrlForm extends Component {
   handleOnClick = () => {
@@ -19,4 +20,11 @@ class UrlForm extends Component {
     );
   }
 }
+UrlForm.propTypes = {
+  isBusy: PropTypes.bool,
+  onClickGenerate: PropTypes.func
+};
+UrlForm.defaultProps = {
+  isBusy: false
+};
 export default UrlForm;

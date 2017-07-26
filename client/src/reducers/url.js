@@ -65,7 +65,7 @@ const INITIAL_STATE = {
   isBusy: false,
   hasAdded: false,
   hasFetched: false,
-  error: false,
+  hasError: false,
   message: null,
   shortUrl: null,
   originalUrl: null
@@ -88,7 +88,7 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isBusy: false,
-        error: true,
+        hasError: true,
         hasAdded: false,
         message: action.data.message
       };

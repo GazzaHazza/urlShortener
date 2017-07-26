@@ -10,9 +10,13 @@ import { getShortCode, isDuplicate, insertNew } from './mongo-utils';
 mongoose.Promise = global.Promise;
 
 export const app = express();
-mongoose.connect('mongodb://admin:Hellotouall1234@ds115493.mlab.com:15493/url_shortener', {useMongoClient: true});
+const options = {
+  useMongoClient: true, 
+  keepAlive: 1, 
+  connectTimeoutMS: 30000
+};
+mongoose.connect('mongodb://admin:Hellotouall1234@ds115493.mlab.com:15493/url_shortener', options);
 app.use(bodyParser.json());
-console.log(path.resolve(__dirname, '../client/build'));
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 app.get('/api/:shortCode', (req, res) => {

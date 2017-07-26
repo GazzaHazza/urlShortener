@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import FadeIn from "react-fade-in";
 import { sendNewUrl } from "./../../reducers/url";
@@ -12,14 +13,14 @@ class Home extends Component {
   };
   render() {
     const {
-      url: { message, error, hasAdded, shortUrl, orginalUrl, isBusy }
+      url: { message, hasError, hasAdded, shortUrl, orginalUrl, isBusy }
     } = this.props;
     const messageComp =
-      message && (hasAdded || error)
+      message && (hasAdded || hasError)
         ? <FadeIn>
             <Message
               message={message}
-              error={error}
+              hasError={hasError}
               hasAdded={hasAdded}
               shortUrl={shortUrl}
               orginalUrl={orginalUrl}
@@ -40,7 +41,16 @@ class Home extends Component {
     );
   }
 }
-
+Home.propTypes = {
+  url: PropTypes.shape({
+    hasError: PropTypes.bool,
+    hasAdded: PropTypes.bool,
+    isBusy: PropTypes.bool,
+    shortUrl: PropTypes.string,
+    orginalUrl: PropTypes.string,
+    message: PropTypes.string
+  })
+};
 export default connect(
   state => {
     return {

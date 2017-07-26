@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getOriginalUrl } from "./../../reducers/url";
 
@@ -22,6 +23,16 @@ class URLRedirect extends Component {
     );
   }
 }
+URLRedirect.propTypes = {
+  url: PropTypes.shape({
+    hasError: PropTypes.bool,
+    hasAdded: PropTypes.bool,
+    isBusy: PropTypes.bool,
+    shortUrl: PropTypes.string.isRequired,
+    orginalUrl: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired
+  })
+};
 export default connect(
   state => {
     return {

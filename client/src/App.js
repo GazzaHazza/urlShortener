@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { Route } from "react-router-dom";
 import "./App.css";
 import URLRedirect from "./views/URLRedirect/URLRedirect";
@@ -15,7 +14,4 @@ class App extends Component {
     );
   }
 }
-function mapStateToProps(state, props) {
-  return { search: state.search };
-}
-export default connect(mapStateToProps)(App);
+export default App;
