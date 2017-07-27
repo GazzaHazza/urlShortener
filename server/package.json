@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "forever start index.js --silent"
+    "start": "forever start index.js --silent",
+    "stop": "forever stop index.js"
   },
   "engines": {
     "node": "6.11.1"
