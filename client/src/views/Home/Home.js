@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import FadeIn from "react-fade-in";
-import { sendNewUrl } from "./../../reducers/url";
+import { sendNewUrl } from "./../../reducers/urlReducer";
 import UrlForm from "../../components/UrlForm/UrlForm";
 import MessageBox from "../../components/MessageBox/MessageBox";
 import Loading from "../../components/Loading/Loading";
@@ -56,12 +56,11 @@ Home.propTypes = {
     message: PropTypes.string
   })
 };
+
 export default connect(
-  state => {
-    return {
-      url: state.url
-    };
-  },
+  state => ({
+    url: state.url
+  }),
   {
     sendNewUrl
   }

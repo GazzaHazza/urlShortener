@@ -1,4 +1,4 @@
-import url from "./url";
+import url from "./urlReducer";
 import { combineReducers } from "redux";
 const rootReducer = combineReducers({
   url

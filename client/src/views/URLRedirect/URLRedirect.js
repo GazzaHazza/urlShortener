@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Loading from "../../components/Loading/Loading";
-import { getOriginalUrl } from "./../../reducers/url";
+import { getOriginalUrl } from "./../../reducers/urlReducer";
 
 export class URLRedirect extends Component {
   componentDidMount() {
@@ -29,10 +29,10 @@ URLRedirect.propTypes = {
     hasError: PropTypes.bool,
     hasAdded: PropTypes.bool,
     isBusy: PropTypes.bool,
-    shortUrl: PropTypes.string.isRequired,
-    orginalUrl: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired
-  })
+    shortUrl: PropTypes.string,
+    originalUrl: PropTypes.string
+  }),
+  getOriginalUrl: PropTypes.func
 };
 export default connect(
   state => {

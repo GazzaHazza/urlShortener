@@ -3,14 +3,14 @@ import axios from "axios";
 export function sendNewUrl(newUrl) {
   return dispatch => {
     dispatch(startUrlFetch());
-    axios
+    return axios
       .post("/api/new", {
         url: newUrl
       })
-      .then(function(response) {
+      .then(response => {
         dispatch(urlAdded(response.data));
       })
-      .catch(function(error) {
+      .catch(error => {
         dispatch(apiError(error.response.data));
       });
   };
@@ -19,19 +19,20 @@ export function sendNewUrl(newUrl) {
 export function getOriginalUrl(shortCode) {
   return dispatch => {
     dispatch(startUrlFetch());
-    axios
+    console.log("jiejvo");
+    return axios
       .get(`/api/${shortCode}`)
-      .then(function(response) {
+      .then(response => {
         dispatch(storeOriginalUrl(response.data));
       })
-      .catch(function(error) {
+      .catch(error => {
         dispatch(apiError(error.response.data));
       });
   };
 }
 
 const START_FETCH_URL = "url.START_FETCH";
-function startUrlFetch() {
+export function startUrlFetch() {
   return {
     type: START_FETCH_URL
   };
@@ -97,6 +98,7 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isBusy: false,
+        hasFetched: true,
         originalUrl: action.data.originalUrl
       };
 
