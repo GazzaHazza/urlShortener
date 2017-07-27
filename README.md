@@ -9,9 +9,9 @@ Install the dependencies for both the server and client.
 ```sh
 $ git clone https://github.com/GazzaHazza/urlShortener.git
 $ cd urlShortener
-& rm -rf .git
+$ rm -rf .git
 $ cd server && yarn 
-& cd ../client && yarn
+$ cd ../client && yarn
 ```
 #### Start server
 In server folder:
