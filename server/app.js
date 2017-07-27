@@ -15,7 +15,7 @@ const options = {
   keepAlive: 1, 
   connectTimeoutMS: 30000
 };
-mongoose.connect('mongodb://admin:Hellotouall1234@ds115493.mlab.com:15493/url_shortener', options);
+mongoose.connect('mongodb://admin:testAdmin@ds115493.mlab.com:15493/url_shortener', options);
 app.use(bodyParser.json());
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
