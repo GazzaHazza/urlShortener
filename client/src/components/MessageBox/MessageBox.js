@@ -1,21 +1,34 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import "./MessageBox.css";
+import styled from "styled-components";
+import styleVariables from "../../styles/styleVariables";
+
+const Message = styled.div`
+  padding: 10px;
+  border: 1px solid #ffffff;
+  background: ${props =>
+    props.hasError
+      ? styleVariables.colors.red.light
+      : styleVariables.colors.green.light};};
+  border-color: ${props =>
+    props.hasError
+      ? styleVariables.colors.red.normal
+      : styleVariables.colors.green.normal};
+  margin-top: 20px;
+  border-radius: 5px;
+  text-align: center;
+`;
+const Link = styled.a`margin-left: 5px;`;
 class MessageBox extends Component {
   render() {
-    const { message, hasError, hasAdded, shortUrl } = this.props;
-    const className = hasError && !hasAdded ? "--error" : "--added";
+    const { message, shortUrl, hasAdded, hasError } = this.props;
     return (
-      <div className={`message message${className}`}>
+      <Message hasError={hasError} hasAdded={hasAdded}>
         {message}
-        <a
-          href={shortUrl}
-          target="_blank"
-          className={`message__link message__link${className}`}
-        >
+        <Link href={shortUrl} target="_blank">
           {shortUrl}
-        </a>
-      </div>
+        </Link>
+      </Message>
     );
   }
 }

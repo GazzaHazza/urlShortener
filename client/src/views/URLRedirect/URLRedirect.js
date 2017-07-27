@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Loading from "../../components/Loading/Loading";
 import { getOriginalUrl } from "./../../reducers/urlReducer";
+import styled from "styled-components";
 
+const Container = styled.div`posistion: relative;`;
 export class URLRedirect extends Component {
   componentDidMount() {
     const shortCode = this.props.match.params.urlCode;
@@ -18,9 +20,9 @@ export class URLRedirect extends Component {
 
   render() {
     return (
-      <div className="url-redirect__container">
+      <Container className="url-redirect__container">
         <Loading />
-      </div>
+      </Container>
     );
   }
 }

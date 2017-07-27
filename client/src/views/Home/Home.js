@@ -6,7 +6,22 @@ import { sendNewUrl } from "./../../reducers/urlReducer";
 import UrlForm from "../../components/UrlForm/UrlForm";
 import MessageBox from "../../components/MessageBox/MessageBox";
 import Loading from "../../components/Loading/Loading";
-import "./Home.css";
+import styled from "styled-components";
+
+const Container = styled.div`
+  width: 75%;
+  margin: 0 auto;
+  position: relative;
+  @media all and (max-width: 520px) {
+    width: 90%;
+  }
+`;
+
+const Title = styled.h1`text-align: center;`;
+const Subtitle = styled.h2`
+  text-align: center;
+  margin-bottom: 50px;
+`;
 
 export class Home extends Component {
   generateNewUrl = url => {
@@ -31,18 +46,17 @@ export class Home extends Component {
         : null;
 
     const loadingComponent = isBusy ? <Loading /> : null;
+
     return (
-      <div className="home">
-        <div className="home__container">
-          <h1 className="home__title">Shorten your link....</h1>
-          <h2 className="home__subtitle">
-            Enter a url below, click generate and then use the "short" version.
-          </h2>
-          <UrlForm onClickGenerate={this.generateNewUrl} isBusy={isBusy} />
-          {messageComponent}
-          {loadingComponent}
-        </div>
-      </div>
+      <Container>
+        <Title>Shorten your link....</Title>
+        <Subtitle>
+          Enter a url below, click generate and then use the "short" version.
+        </Subtitle>
+        <UrlForm onClickGenerate={this.generateNewUrl} isBusy={isBusy} />
+        {messageComponent}
+        {loadingComponent}
+      </Container>
     );
   }
 }

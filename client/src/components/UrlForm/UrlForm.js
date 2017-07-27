@@ -1,6 +1,48 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import "./UrlForm.css";
+import styled from "styled-components";
+import styleVariables from "../../styles/styleVariables";
+
+const Container = styled.section`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+`;
+
+const Input = styled.input`
+  flex: 2 0 0;
+  border: 1px solid ${styleVariables.colors.black.light};
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: ${styleVariables.fonts.size.medium};
+  line-height: ${styleVariables.fonts.size.medium};
+
+  @media all and (max-width: 520px) {
+    flex: auto;
+    width: 100%;
+  }
+`;
+
+const Button = styled.button`
+  flex: 1 0 0;
+  margin-left: 10px;
+  outline: none;
+  border: none;
+  background: ${styleVariables.colors.orange.normal};
+  font-size: ${styleVariables.fonts.size.medium};
+  border-radius: 5px;
+  border: 1px solid ${styleVariables.colors.orange.normal};
+  &:active {
+    border-style: insert;
+    border-color: ${styleVariables.colors.orange.dark};
+  }
+  @media all and (max-width: 520px) {
+    flex: auto;
+    width: 100%;
+    margin: 20px 0 0 0;
+  }
+`;
 class UrlForm extends Component {
   constructor(props) {
     super(props);
@@ -18,19 +60,16 @@ class UrlForm extends Component {
     const { isBusy } = this.props;
     const buttonText = isBusy ? "Generating..." : "Generate short link";
     return (
-      <div className="url-form">
-        <div className="url-form__container">
-          <input
-            type="text"
-            className="url-form__input"
-            value={this.state.urlValue}
-            onChange={this.handleInputChange}
-          />
-          <button className="url-form__button" onClick={this.handleOnClick}>
-            {buttonText}
-          </button>
-        </div>
-      </div>
+      <Container>
+        <Input
+          type="text"
+          value={this.state.urlValue}
+          onChange={this.handleInputChange}
+        />
+        <Button onClick={this.handleOnClick}>
+          {buttonText}
+        </Button>
+      </Container>
     );
   }
 }
