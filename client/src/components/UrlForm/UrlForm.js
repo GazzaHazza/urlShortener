@@ -62,6 +62,7 @@ class UrlForm extends Component {
     return (
       <Container>
         <Input
+          className="urlInput"
           type="text"
           value={this.state.urlValue}
           onChange={this.handleInputChange}

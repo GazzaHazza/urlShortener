@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<div
+<styled.div
   className="loading"
 >
-  <span
-    className="fa fa-spinner fa-pulse loading__icon"
+  <styled.i
+    className="fa fa-spinner fa-pulse"
   />
-</div>
+</styled.div>
 `;

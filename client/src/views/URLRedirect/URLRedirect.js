@@ -20,7 +20,7 @@ export class URLRedirect extends Component {
 
   render() {
     return (
-      <Container className="url-redirect__container">
+      <Container>
         <Loading />
       </Container>
     );

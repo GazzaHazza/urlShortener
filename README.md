@@ -18,6 +18,11 @@ In server folder:
 ```sh
 $ yarn start
 ```
+#### Stop server
+In server folder:
+```sh
+$ yarn stop
+```
 #### Start client
 In client folder:
 ```sh

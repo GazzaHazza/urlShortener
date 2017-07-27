@@ -19,7 +19,6 @@ export function sendNewUrl(newUrl) {
 export function getOriginalUrl(shortCode) {
   return dispatch => {
     dispatch(startUrlFetch());
-    console.log("jiejvo");
     return axios
       .get(`/api/${shortCode}`)
       .then(response => {
@@ -81,17 +80,20 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         isBusy: false,
         hasAdded: true,
+        hasError: false,
         shortUrl: action.data.shortUrl,
         originalUrl: action.data.originalUrl,
         message: action.data.message
       };
     case API_ERROR:
+      const tempShortCode = action.data.shortUrl ? action.data.shortUrl : null;
       return {
         ...state,
         isBusy: false,
         hasError: true,
         hasAdded: false,
-        message: action.data.message
+        message: action.data.message,
+        shortUrl: tempShortCode
       };
 
     case STORE_ORIGINAL_URL:
@@ -99,6 +101,7 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         isBusy: false,
         hasFetched: true,
+        hasError: false,
         originalUrl: action.data.originalUrl
       };
 

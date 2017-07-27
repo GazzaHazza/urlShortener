@@ -12,9 +12,7 @@ exports[`renders correctly 1`] = `
   }
 >
   <BrowserRouter>
-    <div
-      className="container"
-    >
+    <styled.div>
       <Route
         component={[Function]}
         exact={true}
@@ -24,7 +22,7 @@ exports[`renders correctly 1`] = `
         component={[Function]}
         path="/:urlCode"
       />
-    </div>
+    </styled.div>
   </BrowserRouter>
 </Provider>
 `;

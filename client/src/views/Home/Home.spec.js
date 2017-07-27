@@ -1,6 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { Home } from "./Home";
+import "jest-styled-components";
+
 it("renders correctly with default props", () => {
   const mockProps = {
     url: {

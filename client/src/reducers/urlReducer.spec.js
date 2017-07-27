@@ -59,7 +59,7 @@ it("should set correct state when sendNewUrl is successful", async () => {
   expect(state).toEqual(EXPECTED_STATE);
 });
 
-it("should set correct state when sendNewUrl is is unsuccessfull", async () => {
+it("should set correct state when sendNewUrl is is unsuccessfull and no shortUrl", async () => {
   const EXPECTED_STATE = {
     isBusy: false,
     hasAdded: false,
@@ -77,6 +77,25 @@ it("should set correct state when sendNewUrl is is unsuccessfull", async () => {
   expect(state).toEqual(EXPECTED_STATE);
 });
 
+it("should set correct state when sendNewUrl is is unsuccessfull and with shortUrl", async () => {
+  const EXPECTED_STATE = {
+    isBusy: false,
+    hasAdded: false,
+    hasFetched: false,
+    hasError: true,
+    message: "test error message",
+    shortUrl: "testShortUrl",
+    originalUrl: null
+  };
+  mockAdapter.onPost("/api/new").reply(500, {
+    message: "test error message",
+    shortUrl: "testShortUrl"
+  });
+  await dispatch(sendNewUrl("http://www.lego.com"));
+  const state = store.getState();
+  expect(state).toEqual(EXPECTED_STATE);
+});
+
 it("should set correct state when getOriginalUrl is is successfull", async () => {
   const EXPECTED_STATE = {
     isBusy: false,
@@ -87,7 +106,6 @@ it("should set correct state when getOriginalUrl is is successfull", async () =>
     shortUrl: null,
     originalUrl: "test url"
   };
-  console.log("in here");
   mockAdapter.onGet("/api/hello").reply(200, {
     originalUrl: "test url"
   });
@@ -96,7 +114,7 @@ it("should set correct state when getOriginalUrl is is successfull", async () =>
   expect(state).toEqual(EXPECTED_STATE);
 });
 
-it("should set correct state when getOriginalUrl is is successfull", async () => {
+it("should set correct state when getOriginalUrl is unsuccessfull", async () => {
   const EXPECTED_STATE = {
     isBusy: false,
     hasAdded: false,
@@ -106,7 +124,6 @@ it("should set correct state when getOriginalUrl is is successfull", async () =>
     shortUrl: null,
     originalUrl: null
   };
-  console.log("in here");
   mockAdapter.onGet("/api/hello").reply(500, {
     message: "test error message"
   });

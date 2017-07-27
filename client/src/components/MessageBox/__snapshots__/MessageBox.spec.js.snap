@@ -1,31 +1,93 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly with added class 1`] = `
-<div
-  className="message message--added"
+exports[`renders correctly backgrund correctly depending on hasAdded prop 1`] = `
+.c0 {
+  padding: 10px;
+  border: 1px solid #ffffff;
+  background: #b1f8b8;
+  border-color: #6bf178;
+  margin-top: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.c1 {
+  margin-left: 5px;
+}
+
+<MessageBox
+  hasAdded={true}
+  hasError={false}
+  message="hello"
+  shortUrl="www.hello.com/1"
 >
-  hello
-  <a
-    className="message__link message__link--added"
-    href="www.hello.com/1"
-    target="_blank"
+  <styled.div
+    hasAdded={true}
+    hasError={false}
   >
-    www.hello.com/1
-  </a>
-</div>
+    <div
+      className="c0"
+    >
+      hello
+      <styled.a
+        href="www.hello.com/1"
+        target="_blank"
+      >
+        <a
+          className="c1"
+          href="www.hello.com/1"
+          target="_blank"
+        >
+          www.hello.com/1
+        </a>
+      </styled.a>
+    </div>
+  </styled.div>
+</MessageBox>
 `;
 
 exports[`renders correctly with error class 1`] = `
-<div
-  className="message message--error"
+.c0 {
+  padding: 10px;
+  border: 1px solid #ffffff;
+  background: #ffa6ab;
+  border-color: #ff5964;
+  margin-top: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.c1 {
+  margin-left: 5px;
+}
+
+<MessageBox
+  hasAdded={false}
+  hasError={true}
+  message="hello"
+  shortUrl="www.hello.com/1"
 >
-  hello
-  <a
-    className="message__link message__link--error"
-    href="www.hello.com/1"
-    target="_blank"
+  <styled.div
+    hasAdded={false}
+    hasError={true}
   >
-    www.hello.com/1
-  </a>
-</div>
+    <div
+      className="c0"
+    >
+      hello
+      <styled.a
+        href="www.hello.com/1"
+        target="_blank"
+      >
+        <a
+          className="c1"
+          href="www.hello.com/1"
+          target="_blank"
+        >
+          www.hello.com/1
+        </a>
+      </styled.a>
+    </div>
+  </styled.div>
+</MessageBox>
 `;

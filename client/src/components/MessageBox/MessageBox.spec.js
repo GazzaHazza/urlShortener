@@ -1,9 +1,10 @@
 import React from "react";
 import MessageBox from "./MessageBox";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
+import "jest-styled-components";
 
 it("renders correctly with error class", () => {
-  const wrapper = shallow(
+  const wrapper = mount(
     <MessageBox
       message="hello"
       hasError={true}
@@ -12,10 +13,12 @@ it("renders correctly with error class", () => {
     />
   );
   expect(wrapper).toMatchSnapshot();
+  expect(wrapper).toHaveStyleRule("background", "#ffa6ab");
+  expect(wrapper).toHaveStyleRule("border-color", "#ff5964");
 });
 
-it("renders correctly with added class", () => {
-  const wrapper = shallow(
+it("renders correctly backgrund correctly depending on hasAdded prop", () => {
+  const wrapper = mount(
     <MessageBox
       message="hello"
       hasError={false}
@@ -24,4 +27,6 @@ it("renders correctly with added class", () => {
     />
   );
   expect(wrapper).toMatchSnapshot();
+  expect(wrapper).toHaveStyleRule("background", "#b1f8b8");
+  expect(wrapper).toHaveStyleRule("border-color", "#6bf178");
 });

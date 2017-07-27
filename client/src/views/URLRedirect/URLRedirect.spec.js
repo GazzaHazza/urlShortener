@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { URLRedirect } from "./URLRedirect";
+import "jest-styled-components";
 
 it("renders correctly", () => {
   const wrapper = shallow(<URLRedirect />);

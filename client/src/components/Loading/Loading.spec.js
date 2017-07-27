@@ -1,8 +1,9 @@
 import React from "react";
 import Loading from "./Loading";
-import renderer from "react-test-renderer";
+import { shallow } from "enzyme";
+import "jest-styled-components";
 
 it("renders correctly", () => {
-  const tree = renderer.create(<Loading />).toJSON();
-  expect(tree).toMatchSnapshot();
+  const wrapper = shallow(<Loading />);
+  expect(wrapper).toMatchSnapshot();
 });

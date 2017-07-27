@@ -1,85 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly with default props 1`] = `
-<div
-  className="home"
->
-  <div
-    className="home__container"
-  >
-    <h1
-      className="home__title"
-    >
-      Shorten your link....
-    </h1>
-    <h2
-      className="home__subtitle"
-    >
-      Enter a url below, click generate and then use the "short" version.
-    </h2>
-    <UrlForm
-      isBusy={false}
-      onClickGenerate={[Function]}
-    />
-  </div>
-</div>
+<styled.div>
+  <styled.h1>
+    Shorten your link....
+  </styled.h1>
+  <styled.h2>
+    Enter a url below, click generate and then use the "short" version.
+  </styled.h2>
+  <UrlForm
+    isBusy={false}
+    onClickGenerate={[Function]}
+  />
+</styled.div>
 `;
 
 exports[`renders correctly with hasError prop set true 1`] = `
-<div
-  className="home"
->
-  <div
-    className="home__container"
-  >
-    <h1
-      className="home__title"
-    >
-      Shorten your link....
-    </h1>
-    <h2
-      className="home__subtitle"
-    >
-      Enter a url below, click generate and then use the "short" version.
-    </h2>
-    <UrlForm
-      isBusy={false}
-      onClickGenerate={[Function]}
+<styled.div>
+  <styled.h1>
+    Shorten your link....
+  </styled.h1>
+  <styled.h2>
+    Enter a url below, click generate and then use the "short" version.
+  </styled.h2>
+  <UrlForm
+    isBusy={false}
+    onClickGenerate={[Function]}
+  />
+  <FadeIn>
+    <MessageBox
+      hasAdded={false}
+      hasError={true}
+      message="test"
+      shortUrl="test"
     />
-    <FadeIn>
-      <MessageBox
-        hasAdded={false}
-        hasError={true}
-        message="test"
-        shortUrl="test"
-      />
-    </FadeIn>
-  </div>
-</div>
+  </FadeIn>
+</styled.div>
 `;
 
 exports[`renders correctly with isBusy prop set true 1`] = `
-<div
-  className="home"
->
-  <div
-    className="home__container"
-  >
-    <h1
-      className="home__title"
-    >
-      Shorten your link....
-    </h1>
-    <h2
-      className="home__subtitle"
-    >
-      Enter a url below, click generate and then use the "short" version.
-    </h2>
-    <UrlForm
-      isBusy={true}
-      onClickGenerate={[Function]}
-    />
-    <Loading />
-  </div>
-</div>
+<styled.div>
+  <styled.h1>
+    Shorten your link....
+  </styled.h1>
+  <styled.h2>
+    Enter a url below, click generate and then use the "short" version.
+  </styled.h2>
+  <UrlForm
+    isBusy={true}
+    onClickGenerate={[Function]}
+  />
+  <Loading />
+</styled.div>
 `;
